@@ -98,6 +98,11 @@ public class Car {
 
     @Override
     public String toString() {
-        return super.toString();
+        return  getClass() + "\n"+
+                "\tModel: " + get_model() + "\n" +
+                "\tColor: " + get_color()+ "\n" +
+                "\tCost: " + get_cost()+ "\n" +
+                "\tType: " + get_type()+ "\n" +
+                "\tTowing: " + get_towing()+ "\n";
     }
 }
