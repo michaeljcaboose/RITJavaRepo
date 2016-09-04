@@ -19,9 +19,9 @@ public class Car {
         Scanner carInput = new Scanner(System.in);
         System.out.println("Entering Car Order");
         System.out.print("Model: ");
-        set_model(carInput.next());
+        set_model(carInput.nextLine());
         System.out.print("Color: ");
-        set_color(carInput.next());
+        set_color(carInput.nextLine());
         System.out.print("Cost: ");
         set_cost(carInput.nextDouble());
 

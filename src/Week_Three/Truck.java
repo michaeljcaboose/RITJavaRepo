@@ -18,11 +18,11 @@ public class Truck {
 
     public Truck(){
         Scanner truckInput = new Scanner(System.in);
-        System.out.println("Entering Car Order");
+        System.out.println("Entering Truck Order");
         System.out.print("Model: ");
-        set_model(truckInput.next());
+        set_model(truckInput.nextLine());
         System.out.print("Color: ");
-        set_color(truckInput.next());
+        set_color(truckInput.nextLine());
         System.out.print("Cost: ");
         set_cost(truckInput.nextDouble());
 

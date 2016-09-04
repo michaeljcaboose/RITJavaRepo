@@ -21,7 +21,7 @@ public class Orders {
         Scanner orderInput = new Scanner(System.in);
         List<Object> orders = new ArrayList<>();
 
-        while(moreToEnter){
+        while(moreToEnter == true){
             System.out.println("Do you want to order a Truck (T/t) or a Car (C/c) ?");
             String orderType = orderInput.next();
 
@@ -40,13 +40,14 @@ public class Orders {
             }
             System.out.print("Do you want to order another vehicle? (y/n)");
             String yesNo = orderInput.next();
-            if (yesNo == "n" || yesNo == "N"){
+            System.out.println("yesNo: " + yesNo);
+            if (yesNo.equals("n") || yesNo.equals("N")){
                 moreToEnter = false;
             }
-
+            System.out.println("moreToEnter: " + moreToEnter);
         }
 
-        for (Object order: orders){ order.toString(); }
+        for (Object order: orders){ System.out.println(order.toString()); }
 
         System.out.println("Thank you for using Matthew Panebianco's Ordering System");
 
