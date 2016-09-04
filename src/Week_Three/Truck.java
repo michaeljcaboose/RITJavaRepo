@@ -94,4 +94,14 @@ public class Truck {
         }
     }
 
+    @Override
+    public String toString(){
+        return  getClass()+  "\n" +
+                "\tModel: " + get_model() + "\n" +
+                "\tColor: " + get_color()+ "\n" +
+                "\tCost: " + get_cost()+ "\n" +
+                "\tType: " + get_bodyType()+ "\n" +
+                "\tTowing: " + get_engine()+ "\n";
+    }
+
 }
