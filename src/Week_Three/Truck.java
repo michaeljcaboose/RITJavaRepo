@@ -10,12 +10,15 @@ import java.util.Scanner;
  */
 public class Truck {
 
+    // Private class variables
+
     private String _model = "";
     private String _color = "";
     private double _cost = 0.0;
     private String _bodyType = "";
     private String _engine = "";
 
+    // Initializing constructor
     public Truck(){
         Scanner truckInput = new Scanner(System.in);
         System.out.println("Entering Truck Order");
@@ -39,32 +42,30 @@ public class Truck {
         set_engine(truckInput.nextInt());
     }
 
+    // Getters
     public String get_model() {
         return _model;
     }
-
-    public void set_model(String _model) {
-        this._model = _model;
-    }
-
     public String get_color() {
         return _color;
     }
-
-    public void set_color(String _color) {
-        this._color = _color;
-    }
-
     public double get_cost() {
         return _cost;
     }
-
-    public void set_cost(double _cost) {
-        this._cost = _cost;
+    public String get_bodyType() {return _bodyType;}
+    public String get_engine() {
+        return _engine;
     }
 
-    public String get_bodyType() {
-        return _bodyType;
+    // Setters
+    public void set_model(String _model) {
+        this._model = _model;
+    }
+    public void set_color(String _color) {
+        this._color = _color;
+    }
+    public void set_cost(double _cost) {
+        this._cost = _cost;
     }
 
     public void set_bodyType(int _bodyType) {
@@ -79,10 +80,6 @@ public class Truck {
         }
     }
 
-    public String get_engine() {
-        return _engine;
-    }
-
     public void set_engine(int _engine){
         switch(_engine) {
             case 1:
@@ -94,6 +91,7 @@ public class Truck {
         }
     }
 
+    // ToString -- needed to print information from driver class
     @Override
     public String toString(){
         return  getClass()+  "\n" +
