@@ -29,7 +29,7 @@ public class Truck extends Vehicle{
                 "Choice: ");
         set_bodyType(truckInput.nextInt());
 
-        System.out.print("Does this car have a towing package? \n" +
+        System.out.print("How big is the trucks engine? \n" +
                 "1. Really big \n" +
                 "2. Not so big \n" +
                 "Choice: ");

@@ -5,6 +5,20 @@ package Week_Four;
  */
 public class Vehicle {
 
+    // PUBLIC CONSTANTS
+    // cars
+    final String [] TOWING = {"Towing package", "No towing package"};
+    final String [] CAR_TYPE = {"Sedan", "Coupe", "Wagon"};
+
+    // trucks
+    final String [] BODY_SIZE   = {"Half-ton", "Full ton"};
+    final String [] ENGINE     = {"Really big", "Not so big"};
+
+    // boaty mc boats
+    final String [] BOAT_TYPE = {"Pontoon", "PWC", "Sailboat"};
+    final String [] MATERIAL = {"Wood", "Fiberglass", "Steel"};
+
+    // private variables
     private String _model  = "";
     private String _color  = "";
     private double _cost   = 0.0;
