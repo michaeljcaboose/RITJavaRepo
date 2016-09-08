@@ -22,7 +22,7 @@ public class Orders {
         List<Object> orders = new ArrayList<>();
 
         while(moreToEnter == true){
-            System.out.println("Do you want to order a Truck (T/t) or a Car (C/c) ?");
+            System.out.println("Do you want to order a Truck (T/t),  Car (C/c), or Boat(B/b) ?");
             String orderType = orderInput.next();
 
             switch(orderType){
@@ -36,6 +36,12 @@ public class Orders {
                 case "c":
                     Car carOrder = new Car();
                     orders.add(carOrder);
+                    break;
+
+                case "B":
+                case "b":
+                    Boat boatOrder = new Boat();
+                    orders.add(boatOrder);
                     break;
             }
             System.out.print("Do you want to order another vehicle? (y/n)");

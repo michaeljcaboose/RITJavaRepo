@@ -12,27 +12,17 @@ public class Car extends Vehicle {
     private String _type   = "";
     private String _towing = "";
 
+    // PUBLIC CONSTANTS
+    // cars
+    final private String [] TOWING = {"Towing package", "No towing package"};
+    final private String [] CAR_TYPE = {"Sedan", "Coupe", "Wagon"};
+
     public Car() {
+        super();
         Scanner carInput = new Scanner(System.in);
-        System.out.println("Entering Car Order");
-        System.out.print("Model: ");
-        set_model(carInput.nextLine());
-        System.out.print("Color: ");
-        set_color(carInput.nextLine());
-        System.out.print("Cost: ");
-        set_cost(carInput.nextDouble());
-
-        System.out.print("What type of car is this? \n" +
-                            "1. Sedan \n" +
-                            "2. Coupe \n" +
-                            "3. Wagon \n" +
-                            "Choice: ");
+        showMenu("What type of car is this?", CAR_TYPE);
         set_type(carInput.nextInt());
-
-        System.out.print("Does this car have a towing package? \n" +
-                "1. Yes \n" +
-                "2. No \n" +
-                "Choice: ");
+        showMenu("Does this car have a towing package?", TOWING);
         set_towing(carInput.nextInt());
     }
 
@@ -40,10 +30,7 @@ public class Car extends Vehicle {
     public String get_towing() {
         return _towing;
     }
-
-    public String get_type() {
-        return _type;
-    }
+    public String get_type() {return _type;}
 
     public void set_towing(int _towing) {
         switch (_towing) {

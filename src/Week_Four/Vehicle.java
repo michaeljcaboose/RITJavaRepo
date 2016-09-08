@@ -1,27 +1,28 @@
 package Week_Four;
 
+import java.awt.*;
+import java.util.Scanner;
+
 /**
  * Created by Panebianco on 9/7/16.
  */
 public class Vehicle {
 
-    // PUBLIC CONSTANTS
-    // cars
-    final String [] TOWING = {"Towing package", "No towing package"};
-    final String [] CAR_TYPE = {"Sedan", "Coupe", "Wagon"};
-
-    // trucks
-    final String [] BODY_SIZE   = {"Half-ton", "Full ton"};
-    final String [] ENGINE     = {"Really big", "Not so big"};
-
-    // boaty mc boats
-    final String [] BOAT_TYPE = {"Pontoon", "PWC", "Sailboat"};
-    final String [] MATERIAL = {"Wood", "Fiberglass", "Steel"};
-
     // private variables
     private String _model  = "";
     private String _color  = "";
     private double _cost   = 0.0;
+
+    public Vehicle(){
+        Scanner vehicleInput = new Scanner(System.in);
+        System.out.println("Entering Order");
+        System.out.print("Model: ");
+        set_model(vehicleInput.nextLine());
+        System.out.print("Color: ");
+        set_color(vehicleInput.nextLine());
+        System.out.print("Cost: ");
+        set_cost(vehicleInput.nextDouble());
+    }
 
     public double get_cost() {
         return _cost;
@@ -45,6 +46,15 @@ public class Vehicle {
 
     public void set_model(String _model) {
         this._model = _model;
+    }
+
+    public void showMenu(String prompt, String [] choices){
+        System.out.println(prompt);
+        for(String choice: choices){
+            System.out.println("\t" + choice);
+        }
+        System.out.println();
+        System.out.print("Please enter: ");
     }
 
 }

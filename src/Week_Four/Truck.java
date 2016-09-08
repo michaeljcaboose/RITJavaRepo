@@ -13,16 +13,14 @@ public class Truck extends Vehicle{
     private String _bodyType = "";
     private String _engine = "";
 
-    public Truck(){
-        Scanner truckInput = new Scanner(System.in);
-        System.out.println("Entering Truck Order");
-        System.out.print("Model: ");
-        set_model(truckInput.nextLine());
-        System.out.print("Color: ");
-        set_color(truckInput.nextLine());
-        System.out.print("Cost: ");
-        set_cost(truckInput.nextDouble());
+    // private constants
+    final private String [] BODY_SIZE   = {"Half-ton", "Full ton"};
+    final private String [] ENGINE     = {"Really big", "Not so big"};
 
+
+    public Truck(){
+        super();
+        Scanner truckInput = new Scanner(System.in);
         System.out.print("What size truck is this? \n" +
                 "1. Half-ton \n" +
                 "2. Full ton \n" +
