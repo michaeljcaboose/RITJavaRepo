@@ -6,6 +6,8 @@ import java.lang.System;
  * @author Matthew Panebianco
  * @version 0.0.1
  *
+ * Car class
+ *
  */
 public class Car {
 

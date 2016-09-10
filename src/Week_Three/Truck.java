@@ -6,6 +6,7 @@ import java.util.Scanner;
  * @author Matthew Panebianco
  * @version 0.0.1
  *
+ * Truck Class
  *
  */
 public class Truck {

@@ -7,7 +7,7 @@ import java.util.List;
 /**
  * @author Matthew Panebianco
  *
- * Collects user input to create vehicle objects for
+ * Collects user input to create vehicle objects (truck and car) for
  * order submission
  *
  * @version 0.0.1
