@@ -48,13 +48,16 @@ public class Vehicle {
         this._model = _model;
     }
 
-    public void showMenu(String prompt, String [] choices){
+    public int showMenu(String prompt, String [] choices){
+        Scanner menuInput = new Scanner(System.in);
         System.out.println(prompt);
-        for(String choice: choices){
-            System.out.println("\t" + choice);
+        for(int i = 1; i <= choices.length; i++){
+            System.out.println("\t" + i + ") " + choices[i-1]);
         }
         System.out.println();
         System.out.print("Please enter: ");
+
+        return menuInput.nextInt();
     }
 
 }

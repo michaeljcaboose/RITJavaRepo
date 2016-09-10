@@ -17,21 +17,21 @@ public class Car extends Vehicle {
     final private String [] TOWING = {"Towing package", "No towing package"};
     final private String [] CAR_TYPE = {"Sedan", "Coupe", "Wagon"};
 
+    // Instantiating class
     public Car() {
+        // call parent class to initialize variables
         super();
-        Scanner carInput = new Scanner(System.in);
-        showMenu("What type of car is this?", CAR_TYPE);
-        set_type(carInput.nextInt());
-        showMenu("Does this car have a towing package?", TOWING);
-        set_towing(carInput.nextInt());
+        set_type(showMenu("What type of car is this?", CAR_TYPE));
+        set_towing(showMenu("Does this car have a towing package?", TOWING));
     }
 
 
-    public String get_towing() {
-        return _towing;
-    }
+    // Getters
+    public String get_towing() {return _towing;}
     public String get_type() {return _type;}
 
+
+    // Setters
     public void set_towing(int _towing) {
         switch (_towing) {
             case 1:
@@ -57,6 +57,9 @@ public class Car extends Vehicle {
         }
     }
 
+
+    // toString -- returns certain values about the object
+    // can be overridden by user
     @Override
     public String toString() {
         return  getClass() + "\n"+
