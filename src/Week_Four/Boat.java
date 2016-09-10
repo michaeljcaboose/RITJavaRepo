@@ -3,9 +3,11 @@ package Week_Four;
 import java.util.Scanner;
 
 /**
- * Created by Panebianco on 9/8/16.
+ * @author Matthew Panebianco
  */
 public class Boat extends Vehicle {
+
+    //private variables
     private String _boatType = "";
     private String _material = "";
 
@@ -13,19 +15,19 @@ public class Boat extends Vehicle {
     final private String [] BOAT_TYPE = {"Pontoon", "PWC", "Sailboat"};
     final private String [] MATERIAL = {"Wood", "Fiberglass", "Steel"};
 
-
+    // class initializer
     public Boat(){
         super();
-        Scanner boatInput = new Scanner(System.in);
-        showMenu("What type of boat is this?", BOAT_TYPE);
-        set_boatType(boatInput.nextInt());
-        showMenu("What is the boat made of?", MATERIAL);
-        set_material(boatInput.nextInt());
+        set_boatType(showMenu("What type of boat is this?", BOAT_TYPE));
+        set_material(showMenu("What is the boat made of?", MATERIAL));
     }
 
+    // Getters
     public String get_boatType() {return _boatType;}
     public String get_material() {return _material;}
 
+
+    // Setters
     public void set_boatType(int _boatType) {
         switch (_boatType) {
             case 1:
@@ -56,7 +58,7 @@ public class Boat extends Vehicle {
 
     @Override
     public String toString(){
-        return getClass()+  "\n" +
+        return  getClass() + "\n"+
                 "\tModel: " + get_model() + "\n" +
                 "\tColor: " + get_color()+ "\n" +
                 "\tCost: " + get_cost()+ "\n" +

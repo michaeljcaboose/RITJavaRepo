@@ -16,7 +16,9 @@ import java.util.Scanner;
 public class Orders {
 
     public static void main(String [] args){
-        System.out.println("Matthew Panebianco's Ordering System\n");
+        System.out.println("Matthew Panebianco's Ordering System\n" +
+                           "Java for Programmers ISTE-200 2016 Fall\n" +
+                           "Homework 4 ");
         boolean moreToEnter = true;
         Scanner orderInput = new Scanner(System.in);
         List<Object> orders = new ArrayList<>();
@@ -46,13 +48,13 @@ public class Orders {
             }
             System.out.print("Do you want to order another vehicle? (y/n)");
             String yesNo = orderInput.next();
-            System.out.println("yesNo: " + yesNo);
             if (yesNo.equals("n") || yesNo.equals("N")){
                 moreToEnter = false;
             }
-            System.out.println("moreToEnter: " + moreToEnter);
+            System.out.println("\n");
         }
 
+        // Prints out the toString of each object located in orders
         for (Object order: orders){ System.out.println(order.toString()); }
 
         System.out.println("Thank you for using Matthew Panebianco's Ordering System");
