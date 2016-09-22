@@ -3,20 +3,24 @@ package Week_Five;
 /**
  * Created by Panebianco on 9/20/16.
  */
-public class Zamboni extends Vehicle {
+public class Zamboni extends Vehicle implements Vinfo {
 
     private String _engineType = "";
     private String _tractorPulled = "";
+    private double _gasMilage = 0.0;
 
     // PUBLIC CONSTANTS
     // Zamboni
     final private String [] ENGINE_TYPE = {"Electric Powered", "Fuel Powered"};
     final private String [] TRACTOR = {"Yes", "No"};
 
+
+
     public Zamboni(){
         super();
         setEngineType(showMenu("What type of engine is needed?", ENGINE_TYPE));
         setTractorPulled(showMenu("Is the zamboni tractor pulled?", TRACTOR));
+        setGasMilage();
     }
 
     // Getters
@@ -26,6 +30,10 @@ public class Zamboni extends Vehicle {
 
     public String getTractorPulled(){
         return _tractorPulled;
+    }
+
+    public double getGasMilage(){
+        return _gasMilage;
     }
 
     // Setters
@@ -47,11 +55,27 @@ public class Zamboni extends Vehicle {
         }
     }
 
+    public void setGasMilage() {
+        _gasMilage = gasMilage();
+    }
+
+    public double gasMilage(){
+
+        if (getTractorPulled().equals("YES") || getTractorPulled().equals("Electric Powered")) {
+            return 0.0;
+        }
+        else {
+            return 15.00;
+        }
+
+    }
+
     public String toString(){
         return getClass() + "\n"+
                 "\tModel: " + get_model() + "\n" +
                 "\tColor: " + get_color()+ "\n" +
                 "\tCost: " + get_cost()+ "\n" +
+                "\tMPG: " + getGasMilage() + "\n" +
                 "\tType: " + getEngineType()+ "\n" +
                 "\tTowing: " + getTractorPulled()+ "\n";
     }
