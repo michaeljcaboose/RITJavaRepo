@@ -13,9 +13,12 @@ public class Zamboni extends Vehicle implements Vinfo {
     // Zamboni
     final private String [] ENGINE_TYPE = {"Electric Powered", "Fuel Powered"};
     final private String [] TRACTOR = {"Yes", "No"};
+    final private double [] ZAMBO_MPG = {0.0, 15.0};
 
 
-
+    /**
+     * Zamboni Constructor class
+     */
     public Zamboni(){
         super();
         setEngineType(showMenu("What type of engine is needed?", ENGINE_TYPE));
@@ -59,17 +62,25 @@ public class Zamboni extends Vehicle implements Vinfo {
         _gasMilage = gasMilage();
     }
 
+    /**
+     * gasMilage checks whether the engine is electric or if the zamboni is a tractor.
+     * If it is either of those, there is no gas milage. Else, the zamboni has 15 mpg.
+     * @return either 0.0 or 15.00
+     */
     public double gasMilage(){
 
         if (getTractorPulled().equals("YES") || getTractorPulled().equals("Electric Powered")) {
-            return 0.0;
+            return ZAMBO_MPG[0];
         }
         else {
-            return 15.00;
+            return ZAMBO_MPG[1];
         }
-
     }
 
+    /**
+     * Generic toString
+     * @return all setters and class name.
+     */
     public String toString(){
         return getClass() + "\n"+
                 "\tModel: " + get_model() + "\n" +

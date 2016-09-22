@@ -5,7 +5,7 @@ package Week_Five;
  * @version 0.0.1
  *
  */
-public class Car extends Vehicle {
+public class Car extends Vehicle implements Vinfo {
 
     private String _type   = "";
     private String _towing = "";
@@ -14,6 +14,7 @@ public class Car extends Vehicle {
     // cars
     final private String [] TOWING = {"Towing package", "No towing package"};
     final private String [] CAR_TYPE = {"Sedan", "Coupe", "Wagon"};
+    final private double [] CAR_MPG = {35.00, 30.00, 25.00};
 
     // Instantiating class
     public Car() {
@@ -55,6 +56,19 @@ public class Car extends Vehicle {
         }
     }
 
+    public double gasMilage(){
+        switch (get_type()){
+            case "Sedan":
+                return CAR_MPG[0];
+            case "Coupe":
+                return CAR_MPG[1];
+            case "Wagon":
+                return CAR_MPG[2];
+            default:
+                return 0.0;
+        }
+    }
+
 
     // toString -- returns certain values about the object
     // can be overridden by user
@@ -64,6 +78,7 @@ public class Car extends Vehicle {
                 "\tModel: " + get_model() + "\n" +
                 "\tColor: " + get_color()+ "\n" +
                 "\tCost: " + get_cost()+ "\n" +
+                "\tMPG: " + gasMilage() + "\n" +
                 "\tType: " + get_type()+ "\n" +
                 "\tTowing: " + get_towing()+ "\n";
     }

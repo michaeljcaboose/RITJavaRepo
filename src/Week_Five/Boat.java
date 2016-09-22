@@ -3,7 +3,7 @@ package Week_Five;
 /**
  * @author Matthew Panebianco
  */
-public class Boat extends Vehicle {
+public class Boat extends Vehicle implements Vinfo{
 
     //private variables
     private String _boatType = "";
@@ -12,6 +12,7 @@ public class Boat extends Vehicle {
     // PRIVATE CONSTANTS
     final private String [] BOAT_TYPE = {"Pontoon", "PWC", "Sailboat"};
     final private String [] MATERIAL = {"Wood", "Fiberglass", "Steel"};
+    final private double [] BOAT_MPG = {20.00, 12.00, 0.0};
 
     // class initializer
     public Boat(){
@@ -54,12 +55,26 @@ public class Boat extends Vehicle {
         }
     }
 
+    public double gasMilage(){
+        switch(get_boatType()){
+            case "Pontoon":
+                return BOAT_MPG[0];
+            case "PWC":
+                return BOAT_MPG[1];
+            case "Sailboat":
+                return BOAT_MPG[2];
+            default:
+                return 0.000;
+        }
+    }
+
     @Override
     public String toString(){
         return  getClass() + "\n"+
                 "\tModel: " + get_model() + "\n" +
                 "\tColor: " + get_color()+ "\n" +
                 "\tCost: " + get_cost()+ "\n" +
+                "\tMPG: " + gasMilage() + "\n" +
                 "\tType: " + get_boatType()+ "\n" +
                 "\tTowing: " + get_material()+ "\n";
     }

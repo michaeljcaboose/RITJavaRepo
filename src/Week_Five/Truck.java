@@ -7,7 +7,7 @@ package Week_Five;
  *
  *
  */
-public class Truck extends Vehicle {
+public class Truck extends Vehicle implements Vinfo{
 
     // private variables
     private String _bodyType = "";
@@ -16,6 +16,7 @@ public class Truck extends Vehicle {
     // private constants
     final private String [] BODY_SIZE   = {"Half-ton", "Full ton"};
     final private String [] ENGINE     = {"Really big", "Not so big"};
+    final private double [] TRUCK_MPG = {8.0, 14.0, 18.0};
 
     // instantiated class
     public Truck(){
@@ -48,11 +49,27 @@ public class Truck extends Vehicle {
     public void set_engine(int _engine){
         switch(_engine) {
             case 1:
-                this._engine = "Half-ton";
+                this._engine = "Really big";
                 break;
             case 2:
-                this._engine = "Full ton";
+                this._engine = "Not so big";
                 break;
+        }
+    }
+
+    public double gasMilage(){
+        if ((get_bodyType() == "Half-ton" && get_engine() == "Really big") ||
+                (get_bodyType() == "Full ton" && get_engine() == "Not so big")){
+            return TRUCK_MPG[1];
+        }
+        else if (get_bodyType() == "Half-ton" && get_engine() == "Not so big"){
+            return TRUCK_MPG[2];
+        }
+        else if (get_bodyType() == "Full ton" && get_engine() == "Really big"){
+            return TRUCK_MPG[0];
+        }
+        else{
+            return 0.0;
         }
     }
 
@@ -64,6 +81,7 @@ public class Truck extends Vehicle {
                 "\tModel: " + get_model() + "\n" +
                 "\tColor: " + get_color()+ "\n" +
                 "\tCost: " + get_cost()+ "\n" +
+                "\tMPG: " + gasMilage() + "\n"+
                 "\tType: " + get_bodyType()+ "\n" +
                 "\tTowing: " + get_engine()+ "\n";
     }
