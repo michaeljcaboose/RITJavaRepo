@@ -1,16 +1,22 @@
 package Week_Five;
 
+import com.sun.tools.doclets.internal.toolkit.util.DocFinder;
+
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 /**
  * Created by Panebianco on 9/7/16.
  */
-public class Vehicle {
+public class Vehicle{
 
     // private variables
-    private String _model  = "";
-    private String _color  = "";
-    private double _cost   = 0.0;
+    private String _model;
+    private String _color;
+    private double _cost;
+
+    int count = 0;
+    int maxTries = 3;
 
     public Vehicle(){
         Scanner vehicleInput = new Scanner(System.in);
@@ -20,7 +26,20 @@ public class Vehicle {
         System.out.print("Color: ");
         set_color(vehicleInput.nextLine());
         System.out.print("Cost: ");
-        set_cost(vehicleInput.nextDouble());
+        // loops to handle in-proper input
+        while(true){
+            try{
+                set_cost(vehicleInput.nextDouble());
+                break;
+            }
+            catch (InputMismatchException e){
+                vehicleInput.nextLine();
+                if(++count == maxTries) throw e;
+                System.out.println("Please insert a valid number (ex: 1000.00). Try: " + count);
+            }
+        }
+
+
     }
 
     public double get_cost() {
@@ -47,6 +66,17 @@ public class Vehicle {
         this._model = _model;
     }
 
+    /**
+     *
+     * Accepts prompt and choices, asks question, prints out choices, and
+     * receives the proper choice from User. If user fails to enter a number
+     * within the range, else will rerun showMenu. Exception will be caught
+     * if user inputs anything other than number, and will rerun showMenu.
+     *
+     * @param prompt String that contains the question asked by the child class
+     * @param choices Array of answers to the prompt question
+     * @return An integer received from user scanner input
+     */
     public int showMenu(String prompt, String [] choices){
         Scanner menuInput = new Scanner(System.in);
         System.out.println(prompt);
@@ -55,8 +85,28 @@ public class Vehicle {
         }
         System.out.println();
         System.out.print("Please enter: ");
+        try{
+            int menuChoice = menuInput.nextInt();
+            if (menuChoice >= 1 && menuChoice <= choices.length){
+                return menuChoice;
+            }
+            else{
+                System.out.println("Please insert a number within the choice range");
+                return showMenu(prompt, choices);
+            }
 
-        return menuInput.nextInt();
+        }
+        catch (InputMismatchException e){
+            System.out.println("Please insert a properly formatted number (1, 2,.., etc)" + e.getMessage());
+            return showMenu(prompt, choices);
+        }
+
     }
 
+    @Override
+    public String toString() {
+        return "\n\tModel:\t"+ get_model()+
+                "\n\tColor:\t"+ get_color()+
+                "\n\tCost:\t"+ get_cost();
+    }
 }

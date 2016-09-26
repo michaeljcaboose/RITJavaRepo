@@ -18,13 +18,15 @@ public class Orders {
     public static void main(String [] args){
         System.out.println("Matthew Panebianco's Ordering System\n" +
                            "Java for Programmers ISTE-200 2016 Fall\n" +
-                           "Homework 4 ");
+                           "Homework 5");
         boolean moreToEnter = true;
         Scanner orderInput = new Scanner(System.in);
         List<Object> orders = new ArrayList<>();
 
         while(moreToEnter == true){
-            System.out.println("Do you want to order a Truck (T/t),  Car (C/c), or Boat(B/b) ?");
+            System.out.println("Do you want to order a: \n\tTruck (T/t)" +
+                                "\n\tCar (C/c)\n\tZamboni (Z/z)\n\tBoat(B/b)" +
+                                "\n\tBlimp(L/l\n\tScooter(S/s)");
             String orderType = orderInput.next();
 
             switch(orderType){
@@ -44,6 +46,21 @@ public class Orders {
                 case "b":
                     Boat boatOrder = new Boat();
                     orders.add(boatOrder);
+                    break;
+                case "Z":
+                case "z":
+                    Zamboni zamboniOrder = new Zamboni();
+                    orders.add(zamboniOrder);
+                    break;
+                case "S":
+                case "s":
+                    Scooter scooterOrder = new Scooter();
+                    orders.add(scooterOrder);
+                    break;
+                case "L":
+                case "l":
+                    Blimp blimpOrder = new Blimp();
+                    orders.add(blimpOrder);
                     break;
             }
             System.out.print("Do you want to order another vehicle? (y/n)");
