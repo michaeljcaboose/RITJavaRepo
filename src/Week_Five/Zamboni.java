@@ -44,8 +44,10 @@ public class Zamboni extends Vehicle implements Vinfo {
         switch(inEngineType){
             case(1):
                 _engineType = "Electric Powered";
+                break;
             case(2):
                 _engineType = "Fuel Powered";
+                break;
         }
     }
 
@@ -53,8 +55,10 @@ public class Zamboni extends Vehicle implements Vinfo {
         switch(inTractorPulled){
             case(1):
                 _tractorPulled = "Yes";
+                break;
             case(2):
                 _tractorPulled = "No";
+                break;
         }
     }
 
